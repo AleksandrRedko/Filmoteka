@@ -1,17 +1,17 @@
 import "./styles/style.css";
-import Icon from "./img/1.jpg";
+// import Icon from "./img/1.jpg";
 
-console.log(444);
+// console.log(4445);
 
-function component() {
-  const element = document.createElement("body");
+// function component() {
+//   const element = document.createElement("body");
 
-  const myIcon = new Image(500, 500);
-  myIcon.src = Icon;
+//   const myIcon = new Image(500, 500);
+//   myIcon.src = Icon;
 
-  element.appendChild(myIcon);
+//   element.appendChild(myIcon);
 
-  return element;
-}
+//   return element;
+// }
 
-document.body.appendChild(component());
+// document.body.appendChild(component());

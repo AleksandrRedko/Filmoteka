@@ -5,13 +5,52 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
   </head>
   <body>
     <header>
-      <ul>
-        <li>поиск</li>
-        <li>домой</li>
-      </ul>
+      <div class="header__container">
+        <div class="nav_container">
+          <a href="#">
+            <span class="logo">Filmoteka</span>
+          </a>
+          <nav>
+            <ul class="nav__list">
+              <li class="nav__list_item">
+                <a class="nav__list_link" href="#">Home</a>
+              </li>
+              <li class="nav__list_item">
+                <a class="nav__list_link" href="#">my library</a>
+              </li>
+            </ul>
+          </nav>
+        </div>
+        <div class="header__form">
+          <form class="search__form" id="search-form">
+            <input
+              class="search__form_input"
+              type="text"
+              name="searchQuery"
+              autocomplete="off"
+              placeholder="Поиск фильмов"
+            />
+            <button type="submit">Search</button>
+          </form>
+        </div>
+        <!-- <div>
+          <ul class="button_list">
+            <li class="button_list-item">
+              <button type="button" class="not-active">Watched</button>
+            </li>
+            <li class="button_list-item">
+              <button type="button" class="not-active">queue</button>
+            </li>
+          </ul>
+        </div> -->
+      </div>
     </header>
   </body>
 </html>

@@ -41,6 +41,7 @@ module.exports = {
       //   directory: path.join(__dirname, "./"),
     },
     liveReload: true,
+    // hot: true,
     static: "./dist",
     open: true,
     port: 7777,
