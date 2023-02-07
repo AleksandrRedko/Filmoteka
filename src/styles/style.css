@@ -33,6 +33,9 @@ header {
     height: 230px;
     margin-left: auto;
     margin-right: auto;
+    margin-bottom: 60px;
+
+
     background: linear-gradient(rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)), url('../img/baner.png');
     background-repeat: no-repeat;
     background-position: center;
@@ -167,9 +170,12 @@ header {
 
 
 /* кнопки */
+.is-active{
+display: none;
+}
 .button_list {
-    display: none;
-    /* display: flex; */
+    
+    display: flex;
     justify-content: center;
 }
 
@@ -199,4 +205,25 @@ header {
 
 .my__library{
 background: linear-gradient(rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)), url('../img/myLibrary.png');
+}
+
+/* main */
+.home{
+max-width: 882px;
+height: 399px;
+margin-left: auto;
+margin-right: auto;
+
+border: 1px solid red;
+
+}
+.my-library {
+    display: none;
+    max-width: 882px;
+    height: 399px;
+    margin-left: auto;
+    margin-right: auto;
+
+    border: 1px solid red;
+
 }

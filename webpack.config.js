@@ -3,7 +3,7 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 const HtmlWebpackInlineSVGPlugin = require("html-webpack-inline-svg-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
-console.log("🚀 ~ file: webpack.config.js:8 ~ __dirname", __dirname); //!
+// console.log("🚀 ~ file: webpack.config.js:8 ~ __dirname", __dirname); //!
 
 module.exports = {
   entry: "./src/index.js",
