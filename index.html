@@ -11,16 +11,17 @@
     />
   </head>
   <body>
-    <header>
+    <header class="my__library">
       <div class="header__container">
         <div class="nav_container">
-          <a href="#">
+          <a href="./index.html">
+            <img inline src="./src/img/film.svg" alt="logo" class="logo__svg" />
             <span class="logo">Filmoteka</span>
           </a>
           <nav>
             <ul class="nav__list">
               <li class="nav__list_item">
-                <a class="nav__list_link" href="#">Home</a>
+                <a class="nav__list_link current" href="./index.html">Home</a>
               </li>
               <li class="nav__list_item">
                 <a class="nav__list_link" href="#">my library</a>
@@ -37,10 +38,10 @@
               autocomplete="off"
               placeholder="Поиск фильмов"
             />
-            <button type="submit">Search</button>
+            <button class="btn__search" type="submit"></button>
           </form>
         </div>
-        <!-- <div>
+        <div>
           <ul class="button_list">
             <li class="button_list-item">
               <button type="button" class="not-active">Watched</button>
@@ -49,7 +50,7 @@
               <button type="button" class="not-active">queue</button>
             </li>
           </ul>
-        </div> -->
+        </div>
       </div>
     </header>
   </body>

@@ -30,13 +30,13 @@ body {
 
 header {
     max-width: 1024px;
-        height: 230px;
-        margin-left: auto;
-        margin-right: auto;
-    background: linear-gradient(rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)), url('../img/baner.png');  
+    height: 230px;
+    margin-left: auto;
+    margin-right: auto;
+    background: linear-gradient(rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)), url('../img/baner.png');
     background-repeat: no-repeat;
     background-position: center;
-    
+
 }
 
 
@@ -54,11 +54,21 @@ header {
 
 /* логотип */
 .logo {
+
     font-size: 30px;
     line-height: 1.16;
 
     color: #FFFFFF
 }
+
+.logo__svg {
+    display: inline-block;
+
+    height: 24px;
+}
+
+
+
 
 /* навигация */
 .nav_container {
@@ -81,39 +91,85 @@ header {
     text-transform: uppercase;
     color: #FFFFFF;
 }
-/* форма инпут */
-.header__form{
-display: flex;
-justify-content: center;
+
+/* подчеркивание текущей страници  */
+.current {
+    position: relative;
 }
+
+.current::after {
+    content: ' ';
+    position: absolute;
+    top: 14px;
+    left: 0px;
+    width: 100%;
+
+
+    border: 1.5px solid #FF6B08;
+    background-color: #FF6B08;
+
+}
+
+
+
+/* форма инпут */
+.header__form {
+    display: flex;
+    justify-content: center;
+}
+
+.search__form {
+    position: relative;
+}
+
 .search__form_input,
-.search__form_input:focus{
+.search__form_input:focus {
+
+
     width: 336px;
     outline: none;
     border: none;
-border-bottom: 0.5px solid #FFFFFF;
-background-color: transparent;
+    border-bottom: 0.5px solid #FFFFFF;
+    background-color: transparent;
 
-font-weight: 400;
-font-size: 14px;
+    font-weight: 400;
+    font-size: 14px;
     line-height: 1.14;
     color: #FFFFFF
 }
 
-.search__form_input::placeholder{
-font-weight: 400;
-font-size: 14px;
+.search__form_input::placeholder {
+    font-weight: 400;
+    font-size: 14px;
     line-height: 1.14;
     color: #FFFFFF
+}
+
+/* иконка поиска */
+.btn__search {
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    right: 0;
+    top: 0;
+
+
+    background-color: transparent;
+    border: none;
+    background: url('../img/search.svg');
+    background-repeat: no-repeat;
+    background-size: 100%;
+
 }
 
 
 
 
 
-/* кнопки
+/* кнопки */
 .button_list {
-    display: flex;
+    display: none;
+    /* display: flex; */
     justify-content: center;
 }
 
@@ -135,6 +191,12 @@ font-size: 14px;
 
 .button_list-item:hover .not-active {
     border: 1px solid transparent;
-    ;
+    
     background: #FF6B01;
-} */
+}
+
+/* library */
+
+.my__library{
+background: linear-gradient(rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)), url('../img/myLibrary.png');
+}

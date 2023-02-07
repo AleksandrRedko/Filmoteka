@@ -1,5 +1,6 @@
 const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
+const HtmlWebpackInlineSVGPlugin = require("html-webpack-inline-svg-plugin");
 
 console.log("🚀 ~ file: webpack.config.js:8 ~ __dirname", __dirname); //!
 
@@ -15,6 +16,7 @@ module.exports = {
     new HtmlWebpackPlugin({
       template: "./index.html",
     }),
+    new HtmlWebpackInlineSVGPlugin({runPreEmit: true}),
   ],
 
   module: {

@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-   "scripts": {
+  "scripts": {
     "watch": "webpack serve --mode development",
     "build": "webpack --mode production",
     "deploy": "gh-pages -d dist"
@@ -19,9 +19,10 @@
     "url": "https://github.com/AleksandrRedko/Filmoteka/issues"
   },
   "homepage": "https://github.com/AleksandrRedko/Filmoteka#readme",
-    "devDependencies": {
+  "devDependencies": {
     "css-loader": "^6.7.3",
     "gh-pages": "^5.0.0",
+    "html-webpack-inline-svg-plugin": "^2.3.0",
     "html-webpack-plugin": "^5.5.0",
     "style-loader": "^3.3.1",
     "webpack": "^5.75.0",
