@@ -26,13 +26,16 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.css$/i,
-        use: [MiniCssExtractPlugin.loader, "css-loader"],
+        test: /\.html$/i,
+        loader: "html-loader",
       },
-
       {
         test: /\.(png|svg|jpg|jpeg|gif)$/i,
         type: "asset/resource",
+      },
+      {
+        test: /\.css$/i,
+        use: [MiniCssExtractPlugin.loader, "css-loader"],
       },
     ],
   },
@@ -40,6 +43,9 @@ module.exports = {
   //     runtimeChunk: "single",
   //   },
   devServer: {
+    devMiddleware: {
+      writeToDisk: true,
+    }, //!!
     client: {
       logging: "error",
     },
@@ -47,8 +53,9 @@ module.exports = {
       directory: path.join(__dirname, "dist"),
       //   directory: path.join(__dirname, "./"),
     },
+
     liveReload: true,
-    // hot: true,
+
     static: "./dist",
     open: true,
     port: 7777,

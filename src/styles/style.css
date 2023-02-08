@@ -75,6 +75,10 @@ header {
 }
 
 /* логотип */
+#logo{
+    display: flex;
+        align-items: flex-end;
+}
 .logo {
 
     font-size: 30px;
@@ -85,8 +89,6 @@ header {
 
 .logo__svg {
     display: inline-block;
-
-    height: 24px;
 }
 
 
@@ -228,9 +230,10 @@ header {
 }
 
 /* main */
+
 .home {
     max-width: 882px;
-    height: 399px;
+   
     margin-left: auto;
     margin-right: auto;
     margin-bottom: 50px;
@@ -242,7 +245,8 @@ header {
 .my-library {
     display: none;
     max-width: 882px;
-    height: 399px;
+
+    
     margin-left: auto;
     margin-right: auto;
     margin-bottom: 50px;
@@ -250,6 +254,44 @@ header {
     border: 1px solid red;
 
 }
+.visually-hidden {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    border: 0;
+    padding: 0;
+    clip: rect(0 0 0 0);
+    border: none;
+    overflow: hidden;
+}
+/* карточка товара */
+.card__item{
+width: 274px;
+height: 439px;
+border: 1px solid black;
+}
+.card__img{
+width: 274px;
+height: auto;
+margin-bottom: 10px;
+
+}
+.card__info_name{
+line-height: 1.17;
+color: #000000;
+}
+.card__info_genre{
+line-height: 1.33;
+
+
+
+color: #FF6B08;
+}
+
+
 
 /* footer */
 footer {
