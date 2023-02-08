@@ -1,13 +1,4 @@
-const refs = {
-  logoRefs: document.querySelector("#logo"),
-  homeRefs: document.querySelector("#home"),
-  libraryRefs: document.querySelector("#library"),
-  form: document.querySelector(".header__form"),
-  btn: document.querySelector(".is-active"),
-  header: document.querySelector("header"),
-  sectionHome: document.querySelector(".home"),
-  sectionLibrary: document.querySelector(".my-library"),
-};
+import {refs} from "../js/refs";
 
 refs.homeRefs.classList.add("current");
 

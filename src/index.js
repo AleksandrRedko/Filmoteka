@@ -1,5 +1,6 @@
 import "./styles/style.css";
 import "./js/app";
+import "./js/loadHomePage";
 // import Icon from "./img/1.jpg";
 
 // console.log(4445);

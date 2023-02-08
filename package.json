@@ -20,6 +20,7 @@
   },
   "homepage": "https://github.com/AleksandrRedko/Filmoteka#readme",
   "devDependencies": {
+    "handlebars-loader": "^1.7.3",
     "css-loader": "^6.7.3",
     "gh-pages": "^5.0.0",
     "html-loader": "^4.2.0",

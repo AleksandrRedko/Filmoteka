@@ -37,6 +37,11 @@ module.exports = {
         test: /\.css$/i,
         use: [MiniCssExtractPlugin.loader, "css-loader"],
       },
+      //Templates:
+      {
+        test: /\.hbs$/,
+        loader: "handlebars-loader",
+      },
     ],
   },
   //   optimization: {
