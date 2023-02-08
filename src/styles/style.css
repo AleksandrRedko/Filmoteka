@@ -238,7 +238,7 @@ header {
     margin-right: auto;
     margin-bottom: 50px;
 
-    border: 1px solid red;
+    
 
 }
 
@@ -267,11 +267,18 @@ header {
     border: none;
     overflow: hidden;
 }
+.cadr-list{
+display: flex;
+flex-wrap: wrap;
+margin: -15px;
+}
+
 /* карточка товара */
 .card__item{
 width: 274px;
 height: 439px;
-border: 1px solid black;
+margin: 15px;
+/* border: 1px solid black; */
 }
 .card__img{
 width: 274px;
