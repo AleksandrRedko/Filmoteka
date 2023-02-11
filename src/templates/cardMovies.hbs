@@ -6,9 +6,13 @@
     </div>
 
     <div class="card__info">
+        {{#if title}}
         <h3 class="card__info_name">{{title}}</h3>
-
-        <p class="card__info_genre"><p>
+       
+        {{else if name}}
+        <h3 class="card__info_name">{{name}}</h3>
+         {{/if}}
+        <p class="card__info_genre">{{genre_ids}}<p>
     </div>
 </li>
 {{/each}}
