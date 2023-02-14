@@ -4,29 +4,48 @@ const ulList = document.querySelector('.pagination__list')
 const pagination = function(currentPage,totalPages) {
     
     let markup ='';
-   for (let index = 1; index <= totalPages; index++) {
-    markup += `<li class="pagination__item">${index}</li>`
 
-   }
+
+    markup += `<li class="pagination__btn prev"></li>`
+
+    if(currentPage <= 5){
+        markup += `<li class="pagination__item ">1</li>
+        <li class="pagination__item">2</li>
+        <li class="pagination__item">3</li>
+        <li class="pagination__item">4</li>
+        <li class="pagination__item">5</li>
+        <li class="pagination__item">6</li>
+        <li class="pagination__item">7</li>        
+        <li class="pagination__dots">...</li>
+        <li class="pagination__item">${totalPages}</li>`
+    }
+    if(currentPage >= 6 && currentPage <= totalPages -4){
+        markup += `<li class="pagination__item ">1</li>
+        <li class="pagination__dots">...</li>
+        <li class="pagination__item">${currentPage -2}</li>
+        <li class="pagination__item">${currentPage -1}</li>
+        <li class="pagination__item">${currentPage}</li>
+        <li class="pagination__item">${currentPage +1}</li>
+        <li class="pagination__item">${currentPage +2}</li>        
+        <li class="pagination__dots">...</li>
+        <li class="pagination__item">${totalPages}</li>`
+    }
+    if(currentPage >= totalPages -3){
+        markup += `<li class="pagination__item ">1</li>
+        <li class="pagination__dots">...</li>
+        <li class="pagination__item">${totalPages-6}</li>
+        <li class="pagination__item">${totalPages-5}</li>
+        <li class="pagination__item">${totalPages-4}</li>
+        <li class="pagination__item">${totalPages-3}</li>
+        <li class="pagination__item">${totalPages-2}</li>
+        <li class="pagination__item">${totalPages-1}</li>        
+        <li class="pagination__item">${totalPages}</li>`
+    }
+    markup += `<li class="pagination__btn next"></li>`
+
+
 
     ulList.innerHTML = markup;  
     
 }
 export default pagination;
-//  let markup ='';
-
-//  if(currentPage > 1){
-//     markup += '<li class="pagination__item"><button>PREV</button></li>'
-//  }
-//  markup += '<li class="pagination__item">1</li>'
-//  if(currentPage > 3){
-//     markup += '<li class="pagination__item">...</li>'
-//  }else{
-//     markup += '<li class="pagination__item">2</li>'
-//  }
-//  markup += '<li class="pagination__item">3</li>'
-
-    // const markup = `<li class="pagination__item">${currentPage -1}</li>
-    // <li class="pagination__item">${currentPage}</li>
-    // <li class="pagination__item">${currentPage +1}</li>
-    // <li class="pagination__item">${totalPages}</li>`;

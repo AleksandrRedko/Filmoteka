@@ -2,7 +2,7 @@ import {refs} from "../js/refs";
 import pagination  from "../js/pagination";
 import cardMovies from "../templates/cardMovies.hbs";
 
-let currentPage =1;
+let currentPage = 1;
 qwe()
 async function qwe() {
   const url =
@@ -15,20 +15,45 @@ async function qwe() {
 
 async function renderHomePage(response) {
   const data = await response.json();
-  pagination(data.page,10)
-  const liEl = Array.from(document.querySelectorAll(".pagination__item"));
+
+  function nextBtn() {
  
+    currentPage = Number(currentPage) + 1;
+
+   
+    qwe(currentPage)
+ }
+  pagination(data.page,data.total_pages)
+  const liEl = Array.from(document.querySelectorAll(".pagination__item"));
+  const btnPrev = document.querySelector('.prev');
+  const btnNext = document.querySelector('.next')
+
+  
+  btnNext.addEventListener('click', nextBtn)
+
+
+  if(currentPage === 1){
+    liEl[0].classList.add('item__active')
+  }
+
   liEl.forEach((li)=>{
+
+      if(currentPage === li.textContent){
+        li.classList.toggle('item__active')
+      }
       
       li.addEventListener('click',()=> {
           currentPage = li.textContent
           qwe(currentPage)
           
       })
+
   })
-  // console.log(pagination(data.page,10))
-  // console.log(data);
+
+
   const markup = cardMovies(data.results);
+
 
   refs.cardList.innerHTML = markup;
 }
+
