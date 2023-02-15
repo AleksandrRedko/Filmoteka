@@ -15,26 +15,35 @@ async function qwe() {
 
 async function renderHomePage(response) {
   const data = await response.json();
+  const page = data.page;
+  const totalPages = data.total_pages;
+  
+  const nextBtn = function() { 
+    if(page !== totalPages){
+      currentPage = Number(currentPage) + 1;   
+      qwe(currentPage)
+    }
 
-  function nextBtn() {
- 
-    currentPage = Number(currentPage) + 1;
+ };
 
-   
-    qwe(currentPage)
+ const prevBtn = function() { 
+ if(currentPage !== 1){
+  currentPage = Number(currentPage) - 1;   
+  qwe(currentPage)
  }
-  pagination(data.page,data.total_pages)
+};
+
+  pagination(page,totalPages)
   const liEl = Array.from(document.querySelectorAll(".pagination__item"));
   const btnPrev = document.querySelector('.prev');
-  const btnNext = document.querySelector('.next')
+  const btnNext = document.querySelector('.next');
 
   
-  btnNext.addEventListener('click', nextBtn)
 
 
   if(currentPage === 1){
     liEl[0].classList.add('item__active')
-  }
+  };
 
   liEl.forEach((li)=>{
 
@@ -48,11 +57,15 @@ async function renderHomePage(response) {
           
       })
 
-  })
+  });
 
+
+
+
+  btnNext.addEventListener('click', nextBtn);
+  btnPrev.addEventListener('click', prevBtn);
 
   const markup = cardMovies(data.results);
-
 
   refs.cardList.innerHTML = markup;
 }
