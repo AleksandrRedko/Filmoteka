@@ -1,6 +1,5 @@
 const ulList = document.querySelector('.pagination__list')
 
-
 const pagination = function(currentPage,totalPages) {
     
     let markup ='';
@@ -44,8 +43,17 @@ const pagination = function(currentPage,totalPages) {
     markup += `<li class="pagination__btn next"></li>`
 
 
-
+    
     ulList.innerHTML = markup;  
+    const liEl =  Array.from(document.querySelectorAll(".pagination__item"));
+    liEl.forEach((li)=>{
+        
+        if(li.textContent == currentPage){
+            li.classList.add('item__active')
+        }
+
+    })
+
     
 }
 export default pagination;

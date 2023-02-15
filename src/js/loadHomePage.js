@@ -1,72 +1,52 @@
 import {refs} from "../js/refs";
 import pagination  from "../js/pagination";
 import cardMovies from "../templates/cardMovies.hbs";
+import MoviesApiServise from './moviesApiServise';
 
-let currentPage = 1;
-qwe()
-async function qwe() {
-  const url =
-    `https://api.themoviedb.org/3/trending/all/day?api_key=14f90a9673a8e38c0e2c74de4fe9bbab&page=${currentPage}`;
+const moviesApiServise = new MoviesApiServise();
 
-  await fetch(url)
-    .then(renderHomePage)
-    .catch((error) => console.log(error.message));
-};
+const nextPage = function(){ 
+   
+  moviesApiServise.incrementPage();
+  moviesApiServise.fetchMovies().then(renderHomePage)
+.catch(error => console.log(error.message));
+  
+}
+const prevPage = function(){  
+ 
+  moviesApiServise.dincrementPage();  
+  moviesApiServise.fetchMovies().then(renderHomePage)
+.catch(error => console.log(error.message)); 
+}
 
-async function renderHomePage(response) {
-  const data = await response.json();
+
+const renderHomePage = async function (data) {
   const page = data.page;
   const totalPages = data.total_pages;
-  
-  const nextBtn = function() { 
-    if(page !== totalPages){
-      currentPage = Number(currentPage) + 1;   
-      qwe(currentPage)
-    }
-
- };
-
- const prevBtn = function() { 
- if(currentPage !== 1){
-  currentPage = Number(currentPage) - 1;   
-  qwe(currentPage)
- }
-};
+  const markup = cardMovies(data.results);
 
   pagination(page,totalPages)
-  const liEl = Array.from(document.querySelectorAll(".pagination__item"));
-  const btnPrev = document.querySelector('.prev');
+    const btnPrev = document.querySelector('.prev');
   const btnNext = document.querySelector('.next');
-
+  const liEl =  Array.from(document.querySelectorAll(".pagination__item"));
+  liEl.forEach((li)=>{
+      li.addEventListener('click', ()=>{
+          moviesApiServise.page = Number(li.textContent);
+          moviesApiServise.fetchMovies().then(renderHomePage)
+          .catch(error => console.log(error.message));
+      })
+  })
   
 
-
-  if(currentPage === 1){
-    liEl[0].classList.add('item__active')
-  };
-
-  liEl.forEach((li)=>{
-
-      if(currentPage === li.textContent){
-        li.classList.toggle('item__active')
-      }
-      
-      li.addEventListener('click',()=> {
-          currentPage = li.textContent
-          qwe(currentPage)
-          
-      })
-
-  });
-
-
-
-
-  btnNext.addEventListener('click', nextBtn);
-  btnPrev.addEventListener('click', prevBtn);
-
-  const markup = cardMovies(data.results);
+  btnNext.addEventListener('click', nextPage);
+  btnPrev.addEventListener('click', prevPage);
 
   refs.cardList.innerHTML = markup;
 }
+
+
+moviesApiServise.fetchMovies().then(renderHomePage)
+.catch(error => console.log(error.message));
+
+
 
