@@ -1,12 +1,25 @@
 const ulList = document.querySelector('.pagination__list')
 
-const pagination = function(currentPage,totalPages) {
-    
+const pagination = function(currentPage,totalPages,total_results) {
+    console.log(totalPages);
     let markup ='';
-
+    if(total_results === 0){
+        ulList.innerHTML  ='';
+        return
+    }
+    
+   
 
     markup += `<li class="pagination__btn prev"></li>`
-
+    if(totalPages < 6){
+        for(let i = 1;i <=totalPages ;i +=1){
+            markup +=`<li class="pagination__item ">${i}</li>`
+        }
+     
+        markup += `<li class="pagination__btn next"></li>`
+        ulList.innerHTML  = markup;
+        return;
+    }
     if(currentPage <= 5){
         markup += `<li class="pagination__item ">1</li>
         <li class="pagination__item">2</li>

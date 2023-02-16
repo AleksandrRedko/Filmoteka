@@ -3,6 +3,7 @@ export const refs = {
   homeRefs: document.querySelector("#home"),
   libraryRefs: document.querySelector("#library"),
   searchForm: document.querySelector("#search-form"),
+  hiddenElement: document.getElementById("box"),
   form: document.querySelector(".header__form"),
   btn: document.querySelector(".is-active"),
   header: document.querySelector("header"),
