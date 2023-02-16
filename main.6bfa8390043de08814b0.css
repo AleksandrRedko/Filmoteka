@@ -219,7 +219,10 @@ header {
     text-transform: uppercase;
     color: #FFFFFF;
 }
+.active__btn{    
+    border: 1px solid transparent;
 
+    background: #FF6B01;}
 .button_list-item:hover .not-active {
     border: 1px solid transparent;
 
@@ -254,8 +257,14 @@ header {
     margin-right: auto;
     margin-bottom: 50px;
 
-    border: 1px solid red;
+    
 
+}
+.library__queue{
+    display: none;
+}
+.library__library{
+    display: block;
 }
 .visually-hidden {
     position: absolute;
