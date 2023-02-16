@@ -3,6 +3,12 @@ export const refs = {
   homeRefs: document.querySelector("#home"),
   libraryRefs: document.querySelector("#library"),
   searchForm: document.querySelector("#search-form"),
+
+  watcheContainer: document.querySelector("#library__watched"),
+  queueContainer: document.querySelector("#library__queue"),
+  watcheBtn: document.querySelector("#btnWatched"),
+  queueBtn: document.querySelector("#btnQueue"),
+ 
   hiddenElement: document.getElementById("box"),
   form: document.querySelector(".header__form"),
   btn: document.querySelector(".is-active"),

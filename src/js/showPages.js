@@ -1,4 +1,4 @@
-import {refs} from "../js/refs";
+import {refs} from "./refs";
 
 refs.homeRefs.classList.add("current");
 
@@ -28,6 +28,28 @@ const goLibrary = function (e) {
   refs.sectionHome.style.display = "none";
   refs.sectionLibrary.style.display = "block";
 };
+
+const showQueueu = function () {
+  refs.watcheBtn.classList.remove('active__btn');
+  refs.queueBtn.classList.add('active__btn');
+
+  refs.queueContainer.style.display = "block";
+  refs.watcheContainer.style.display = "none";
+
+ 
+};
+const showWatched = function () {
+  refs.queueBtn.classList.remove('active__btn');
+  refs.watcheBtn.classList.add('active__btn');
+
+  refs.queueContainer.style.display = "none";
+  refs.watcheContainer.style.display = "block";
+
+
+};
+ 
+refs.queueBtn.addEventListener("click", showQueueu);
+refs.watcheBtn.addEventListener("click", showWatched);
 
 refs.homeRefs.addEventListener("click", goHome);
 refs.logoRefs.addEventListener("click", goHome);
