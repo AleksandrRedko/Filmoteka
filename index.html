@@ -54,6 +54,7 @@
       </div>
     </header>
     <main>
+      <button data-open-modal >open</button>
 <!-- section class="home" -->
       <section class="home">
         <h2 class="visually-hidden">Hidden Title</h2>
@@ -222,5 +223,48 @@
         </p>
       </div>
     </footer>
+    <div data-backdrob class="backdrob  ">
+      <div class="modal">
+
+        <div class="modal__img">
+          <img src="./src/img/modal.png" alt="image movies">
+        </div>
+        <div class="modal__info">
+          <h2 class="modal__name">A FISTFUL OF LEAD</h2>
+          <ul>
+            <li class="modal__movie_info">
+              <p class="info__text">Vote / Votes</p>
+              <p class="info__text_value">
+                <span class="info__span">7.3</span>
+                <span >/</span>
+                <span >1260</span>
+              </p>
+            </li>
+            <li class="modal__movie_info">
+              <p class="info__text">Popularity</p>
+            <p class="info__text_value">100.2</p>
+          </li>
+            <li class="modal__movie_info">
+              <p class="info__text">Original Title</p>
+            <p class="info__text_value">A FISTFUL OF LEAD</p>
+          </li>
+            <li class="modal__movie_info">
+              <p class="info__text">Genre</p>
+              <p class="info__text_value">Western</p>
+            </li>
+            
+          </ul>
+          <h3 class="modal__titel">ABOUT</h3>
+          <p class="modal__text">Four of the West’s most infamous outlaws assemble to steal a huge stash of gold from the most corrupt settlement of the gold rush towns. But not all goes to plan one is killed and the other three escapes with bags of gold hide out in the abandoned gold mine where they happen across another gang of three – who themselves were planning to hit the very same bank! As tensions rise, things go from bad to worse as they realise the bags of gold are filled with lead... they’ve been double crossed – but by who and how?</p>
+          <ul class="button__list">
+            <li class="button__item"><button class="modal__button">ADD TO WATCHED</button></li>
+            <li class="button__item"><button class="modal__button">ADD TO QUEUE</button></li>
+          </ul>
+        </div>
+        <div data-close-modal class="modal__btn_close">
+          <img inline src="./src/img/close.svg" alt="close">
+        </div>
+      </div>
+    </div>
   </body>
 </html>

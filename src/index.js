@@ -1,6 +1,7 @@
 import "./styles/style.css";
 import "./js/showPages";
 import "./js/loadHomePage";
+import './js/modal';
 // import Icon from "./img/1.jpg";
 
 // console.log(4445);

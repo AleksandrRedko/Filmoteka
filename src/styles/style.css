@@ -408,3 +408,124 @@ footer {
 
     color: #545454
 }
+/* backdrob */
+.backdrob.is-hidden{
+    opacity: 0;
+    pointer-events: none;
+}
+
+.backdrob{
+    position: fixed;
+    top: 0;
+    left: 0;
+  
+    width: 100%; 
+     height: 100%;
+    background: rgba(0, 0, 0, 0.25)
+   
+}
+.modal{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+
+    display: flex;
+
+    min-width: 882px;
+    min-height: 568px;
+    padding: 50px 30px 40px;
+
+    background-color: #FFFFFF;
+}
+.modal__img{
+    min-width: 396px;
+    height: auto;
+    margin-right: 30px;
+}
+.modal__name{
+    font-size: 30px;
+    line-height: 1.17;
+    margin-bottom: 20px;
+    
+    color: #000000;  
+}
+.modal__movie_info{
+    display: flex;
+
+    font-size: 12px;
+    line-height: 1.33;
+
+    color: #8C8C8C;
+}
+.modal__movie_info:not(:last-child){
+    margin-bottom: 10px;
+}
+.modal__movie_info:last-child{
+    margin-bottom: 20px;
+}
+.info__text{
+    min-width: 150px;
+}
+.info__text_value{
+    font-size: 12px;
+line-height: 1.17;
+
+text-transform: uppercase;
+
+color: #000000;
+}
+.info__span{
+    display: inline-block;
+    text-align: center;
+    padding: 1px;
+    width: 36px;
+    height: 16px;
+    border-radius: 5px;
+    background-color: #FF6B01;
+    color: #FFFFFF;
+}
+.modal__titel{
+    font-size: 12px;
+    line-height: 1.33;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    
+    color: #000000;   
+}
+.modal__text{
+    font-size: 12px;
+line-height: 1.67;
+margin-bottom: 21px;
+
+color: #000000;
+}
+.button__list{
+    display: flex;
+    justify-content: center;
+}
+.modal__button{ 
+    min-width: 136px;
+    padding: 14px  12px 10px;
+    background-color: transparent;
+    border: 1px solid #000000;
+    font-size: 12px;
+    border-radius: 5px;
+
+    line-height: 1.33;
+    text-transform: uppercase;
+    color:#000000;
+}
+.modal__button:hover{
+    background-color:#FF6B01;
+    color:#FFFFFF; 
+    border: 1px solid #FF6B01;
+}
+.button__item:not(:last-child){
+    margin-right: 15px;
+}
+.modal__btn_close{
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}
