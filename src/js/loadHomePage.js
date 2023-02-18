@@ -99,9 +99,7 @@ moviesApiServise.fetchMovies().then(renderHomePage)
 }
 
 
-// const page = data.page;
-// const totalPages = data.total_pages;
-// pagination(page,totalPages)
+
 };
 // ================================================
  

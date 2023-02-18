@@ -486,6 +486,9 @@ text-transform: uppercase;
 
 color: #000000;
 }
+.info__text_value:not(:last-child){
+    margin-right: 5px;
+}
 .info__span{
     display: inline-block;
     text-align: center;

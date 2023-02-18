@@ -1,4 +1,12 @@
 import {refs} from "./refs";
+import {storage} from './storage';
+import MoviesApiServise from './moviesApiServise';
+import cardMovies from "../templates/cardMovies.hbs";
+
+const moviesApiServise = new MoviesApiServise();
+
+// const idsWatch = storage.idsMovies.watched;
+// const idsQueue = storage.idsMovies.queue;
 
 refs.homeRefs.classList.add("current");
 
@@ -14,9 +22,17 @@ const goHome = function (e) {
   refs.sectionLibrary.style.display = "none";
   refs.sectionHome.style.display = "block";
 };
-
+// начинай отсюда!!!!!!!!!!
 const goLibrary = function (e) {
   e.preventDefault();
+  console.log(storage.idsMovies);
+  storage.idsMovies.watched.map((i)=>{
+    moviesApiServise.fetchMovieById(i).then(data =>{console.log(data)})
+    .catch(error => console.log(error.message));
+  }
+    )
+
+
   refs.homeRefs.classList.remove("current");
   refs.libraryRefs.classList.add("current");
 
@@ -32,6 +48,8 @@ const goLibrary = function (e) {
 const showQueueu = function () {
   refs.watcheBtn.classList.remove('active__btn');
   refs.queueBtn.classList.add('active__btn');
+  //  console.log(storage.idsMovies);
+
 
   refs.queueContainer.style.display = "block";
   refs.watcheContainer.style.display = "none";
@@ -41,6 +59,8 @@ const showQueueu = function () {
 const showWatched = function () {
   refs.queueBtn.classList.remove('active__btn');
   refs.watcheBtn.classList.add('active__btn');
+  // console.log(storage.idsMovies);
+  
 
   refs.queueContainer.style.display = "none";
   refs.watcheContainer.style.display = "block";
