@@ -1,0 +1,47 @@
+
+ <div class="modal__img">
+        {{#if poster_path}}
+        <img src="https://image.tmdb.org/t/p/w1280{{poster_path}}"  />
+        {{else}}
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR9kYvneZq22IX1CbTcbFSiK0IaWsd_kGhiZw&usqp=CAU"
+           />
+        {{/if}}
+        </div>
+        <div class="modal__info">
+          <h2 class="modal__name">{{title}}</h2>
+          <ul>
+            <li class="modal__movie_info">
+              <p class="info__text">Vote / Votes</p>
+              <p class="info__text_value">
+                <span class="info__span">{{vote_average}}</span>
+                <span >/</span>
+                <span >{{vote_count}}</span>
+              </p>
+            </li>
+            <li class="modal__movie_info">
+              <p class="info__text">Popularity</p>
+            <p class="info__text_value">{{popularity}}</p>
+          </li>
+            <li class="modal__movie_info">
+              <p class="info__text">Original Title</p>
+            <p class="info__text_value">{{original_title}}</p>
+          </li>
+            <li class="modal__movie_info">
+              <p class="info__text">Genre</p>
+                {{#each genres}}
+                    <p class="info__text_value">{{name}} </p>
+                    {{/each}}
+              
+            </li>
+            
+          </ul>
+          <h3 class="modal__titel">ABOUT</h3>
+          <p class="modal__text">{{overview}}</p>
+             <ul class="button__list">
+            <li class="button__item"><button class="modal__button">ADD TO WATCHED</button></li>
+            <li class="button__item"><button class="modal__button">ADD TO QUEUE</button></li>
+          </ul>
+       
+        </div>
+         
+       

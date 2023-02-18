@@ -6,11 +6,10 @@ export default class MoviesApiServise {
     this.searchQuery = "";
     this.page = 1;
     this.totalPage = 0;
+    
   }
   
-  async fetchPopularMovies() {
-    
-   
+  async fetchPopularMovies() {    
     
     const url = `${BASE_URL}3/trending/all/day?${key}&page=${this.page}`;
     
@@ -30,6 +29,17 @@ export default class MoviesApiServise {
   
     return data;
  }
+
+ async fetchMovieById(id) {  
+  
+  const url = `${BASE_URL}3/movie/${id}?${key}&language=en-US`;  
+  const response = await fetch(url);
+  const data = await response.json();   
+
+  return data;
+}
+
+
   resetPage() {
     this.page = 1;
     
@@ -54,6 +64,7 @@ export default class MoviesApiServise {
 set query(newQuery){
     this.searchQuery = newQuery; 
 }
+
 
 
 }

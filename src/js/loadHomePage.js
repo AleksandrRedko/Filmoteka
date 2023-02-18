@@ -3,10 +3,8 @@ import pagination  from "../js/pagination";
 import cardMovies from "../templates/cardMovies.hbs";
 import MoviesApiServise from './moviesApiServise';
 import handleButtonClick from './scroll';
+import toggleModal from "./modal";
 
-
-
- 
 
 
 const moviesApiServise = new MoviesApiServise();
@@ -44,12 +42,14 @@ const prevPage = function(){
 
 }
 
-
 const renderHomePage = async function (data) {
   const page = data.page;
   const totalPages = data.total_pages;
   const totalResults = data.total_results;
   const markup = cardMovies(data.results);
+  
+
+
 
   pagination(page,totalPages,totalResults)
     const btnPrev = document.querySelector('.prev');
@@ -104,10 +104,18 @@ moviesApiServise.fetchMovies().then(renderHomePage)
 // pagination(page,totalPages)
 };
 // ================================================
-refs.searchForm.addEventListener('submit',findMovies)
+ 
+refs.searchForm.addEventListener('submit',findMovies);
+
+
+refs.cardList.addEventListener('click',toggleModal );
+refs.watchedList.addEventListener('click',toggleModal );
+refs.queueList.addEventListener('click',toggleModal );
 
 moviesApiServise.fetchPopularMovies().then(renderHomePage)
 .catch(error => console.log(error.message));
+
+
 
 
 

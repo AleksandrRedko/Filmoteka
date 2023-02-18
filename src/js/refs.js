@@ -15,5 +15,10 @@ export const refs = {
   header: document.querySelector("header"),
   sectionHome: document.querySelector(".home"),
   sectionLibrary: document.querySelector(".my-library"),
-  cardList: document.querySelector(".cadr-list"),
+  cardList: document.querySelector(".cadr-list"), 
+  watchedList: document.querySelector(".watched-list"),
+  queueList: document.querySelector(".queue-list"),
+  modal: document.querySelector(".modal"),
+  modalCard: document.querySelector(".modal_card"),
+  
 };

@@ -1,7 +1,7 @@
 const ulList = document.querySelector('.pagination__list')
 
 const pagination = function(currentPage,totalPages,total_results) {
-    console.log(totalPages);
+    
     let markup ='';
     if(total_results === 0){
         ulList.innerHTML  ='';
