@@ -1,0 +1,148 @@
+/* backdrob */
+ body.show__modal .backdrob{
+    opacity: 0;
+    pointer-events: none;
+} 
+
+ .backdrob.is-hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.backdrob {
+  position: fixed;
+  top: 0;
+  left: 0;
+  opacity: 1;
+  pointer-events: inherit;
+
+  width: 100%;
+  height: 100%;
+  background: $backdrob-color;
+}
+.modal {
+  display: flex;
+
+  width: 882px;
+  min-height: 568px;
+  padding: 50px 30px 40px;
+
+  background-color: $backdrob-white-color;
+
+  &__card {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  &__img {
+    width: 396px;
+    height: 478px;
+    margin-right: 30px;
+    overflow: hidden;
+  }
+  &__img img {
+    object-fit: cover;
+  
+    width: 100%;
+    height: 100%;
+  }
+  &__info {
+    width: 396px;
+  }
+  &__name {
+    font-size: 30px;
+    line-height: 1.17;
+    margin-bottom: 20px;
+  
+    color: $primery-text-color;
+  }
+  &__movie_info {
+    display: flex;
+    flex-wrap: wrap;
+    font-size: 12px;
+    line-height: 1.33;
+  
+    color: $modal-text-color;
+  }
+  &__titel {
+    font-size: 12px;
+    line-height: 1.33;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+  
+    color: $primery-text-color;
+  }
+  &__text {
+    font-size: 12px;
+    line-height: 1.67;
+    margin-bottom: 21px;
+  
+    color: $primery-text-color;
+  }
+}
+
+.modal__movie_info:not(:last-child) {
+  margin-bottom: 10px;
+}
+.modal__movie_info:last-child {
+  margin-bottom: 20px;
+}
+.info__text {
+  min-width: 150px;
+  &_value {
+    font-size: 12px;
+    line-height: 1.17;
+  
+    text-transform: uppercase;
+  
+    color: $primery-text-color;
+    &:not(:last-child) {
+      margin-right: 5px;
+    }
+  }
+}
+
+
+.info__span {
+  display: inline-block;
+  text-align: center;
+  padding: 1px;
+  width: 36px;
+  height: 16px;
+  border-radius: 5px;
+  background-color: $accent-color;
+  color: $white-text-color;
+}
+
+
+.button__list {
+  display: flex;
+  justify-content: center;
+}
+.modal__button {
+  min-width: 136px;
+  padding: 14px 12px 10px;
+  background-color: transparent;
+  border: 1px solid $primery-text-color;
+  font-size: 12px;
+  border-radius: 5px;
+
+  line-height: 1.33;
+  text-transform: uppercase;
+  color: $primery-text-color;
+  &:hover {
+    background-color: $accent-color;
+    color: $white-text-color;
+    border: 1px solid $accent-color;
+  }
+}
+
+.button__item:not(:last-child) {
+  margin-right: 15px;
+}
+.modal__btn_close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+} 

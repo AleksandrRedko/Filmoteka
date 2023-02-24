@@ -1,0 +1,35 @@
+/* footer */
+ footer {
+  background: $background-footer-color;
+}
+
+.footer__container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: auto;
+  margin-right: auto;
+
+  height: 77px;
+}
+
+.footer__text {
+  margin-right: 10px;
+
+  font-weight: 400;
+  line-height: 1.19;
+
+  color: $footer-text-color;
+}
+
+.footer__svg {
+  margin-right: 10px;
+}
+
+.footer__link {
+  text-decoration: underline;
+  font-weight: 400;
+  line-height: 1.19;
+
+  color: $footer-text-color;
+} 

@@ -1,72 +1,97 @@
-const ulList = document.querySelector('.pagination__list')
+import createPagination from '../templates/pagination.hbs';
 
-const pagination = function(currentPage,totalPages,total_results) {
-    
-    let markup ='';
-    if(total_results === 0){
-        ulList.innerHTML  ='';
-        return
+const refs = {
+  pagination: document.querySelector('.pagination'),
+  pagesContainer: document.querySelector('.pagination__pages'),
+};
+
+const paginationGenerator = (current, last, delta = 2) => {
+  const left = current - delta;
+  const right = current + delta;
+  const range = [];
+  const rangeWithDots = [];
+  const dots = '...';
+  let previous = null;
+
+  for (let i = 1; i <= last; i += 1) {
+    if (i === 1 || i === last || (i >= left && i <= right)) {
+      range.push(i);
+    } else if (i > right) {
+      range.push(last);
+      break;
     }
-    
-   
+  }
 
-    markup += `<li class="pagination__btn prev"></li>`
-    if(totalPages < 6){
-        for(let i = 1;i <=totalPages ;i +=1){
-            markup +=`<li class="pagination__item ">${i}</li>`
-        }
-     
-        markup += `<li class="pagination__btn next"></li>`
-        ulList.innerHTML  = markup;
-        return;
+  range.forEach(page => {
+    if (previous && page - previous !== 1) {
+      rangeWithDots.push({ page: dots, current: false, dots: true });
     }
-    if(currentPage <= 5){
-        markup += `<li class="pagination__item ">1</li>
-        <li class="pagination__item">2</li>
-        <li class="pagination__item">3</li>
-        <li class="pagination__item">4</li>
-        <li class="pagination__item">5</li>
-        <li class="pagination__item">6</li>
-        <li class="pagination__item">7</li>        
-        <li class="pagination__dots">...</li>
-        <li class="pagination__item">${totalPages}</li>`
-    }
-    if(currentPage >= 6 && currentPage <= totalPages -4){
-        markup += `<li class="pagination__item ">1</li>
-        <li class="pagination__dots">...</li>
-        <li class="pagination__item">${currentPage -2}</li>
-        <li class="pagination__item">${currentPage -1}</li>
-        <li class="pagination__item">${currentPage}</li>
-        <li class="pagination__item">${currentPage +1}</li>
-        <li class="pagination__item">${currentPage +2}</li>        
-        <li class="pagination__dots">...</li>
-        <li class="pagination__item">${totalPages}</li>`
-    }
-    if(currentPage >= totalPages -3){
-        markup += `<li class="pagination__item ">1</li>
-        <li class="pagination__dots">...</li>
-        <li class="pagination__item">${totalPages-6}</li>
-        <li class="pagination__item">${totalPages-5}</li>
-        <li class="pagination__item">${totalPages-4}</li>
-        <li class="pagination__item">${totalPages-3}</li>
-        <li class="pagination__item">${totalPages-2}</li>
-        <li class="pagination__item">${totalPages-1}</li>        
-        <li class="pagination__item">${totalPages}</li>`
-    }
-    markup += `<li class="pagination__btn next"></li>`
+    page === current
+      ? rangeWithDots.push({ page: page, current: true, dots: false })
+      : rangeWithDots.push({ page: page, current: false, dots: false });
+    previous = page;
+  });
 
+  return rangeWithDots;
+};
 
-    
-    ulList.innerHTML = markup;  
-    const liEl =  Array.from(document.querySelectorAll(".pagination__item"));
-    liEl.forEach((li)=>{
-        
-        if(li.textContent == currentPage){
-            li.classList.add('item__active')
-        }
-
-    })
-
-    
+function renderPagination(current, pages) {
+  if (pages === 1) {
+    refs.pagination.classList.add('visual-hidden');
+    return;
+  }
+  refs.pagination.classList.remove('visual-hidden');
+  refs.pagesContainer.innerHTML = createPagination(paginationGenerator(current, pages));
+  disableUnnecessaryArrows(current, pages);
 }
-export default pagination;
+
+export function activatePagination({ current, pages }) {
+  renderPagination(current, pages);
+
+  refs.pagination.addEventListener('click', e => {
+    if (!e.target.classList.contains('btn')) {
+      return;
+    }
+    if (e.target.classList.contains('pagination__btn--page')) {
+      current = +e.target.textContent;
+      renderPagination(current, pages);
+
+      return;
+    }
+    if (e.target.classList.contains('pagination__btn--left')) {
+      if (current !== 1) {
+        current -= 1;
+        renderPagination(current, pages);
+
+        return;
+      }
+    }
+    if (e.target.classList.contains('pagination__btn--right')) {
+      if (current !== pages) {
+        current += 1;
+        renderPagination(current, pages);
+
+        return;
+      }
+    }
+  });
+}
+
+function disableUnnecessaryArrows(current, pages) {
+  const arrows = {
+    left: document.querySelector('.pagination__btn--left'),
+    right: document.querySelector('.pagination__btn--right'),
+  };
+  if (arrows.left.disabled === true || arrows.right.disabled === true) {
+    arrows.left.disabled = false;
+    arrows.right.disabled = false;
+  }
+  if (current === 1) {
+    arrows.left.disabled = true;
+    return;
+  }
+  if (current === pages) {
+    arrows.right.disabled = true;
+    return;
+  }
+}

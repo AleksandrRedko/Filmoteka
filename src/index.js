@@ -1,7 +1,9 @@
-import "./styles/style.css";
-import "./js/showPages";
-import "./js/loadHomePage";
-import './js/modal';
+// import "./styles/style.css";
+import './sass/main.scss';
+import './js/showPages';
+import './js/loadHomePage';
+
+import './js/spiner';
 // import Icon from "./img/1.jpg";
 
 // console.log(4445);

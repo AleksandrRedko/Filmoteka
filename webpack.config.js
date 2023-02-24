@@ -34,9 +34,20 @@ module.exports = {
         type: "asset/resource",
       },
       {
-        test: /\.css$/i,
-        use: [MiniCssExtractPlugin.loader, "css-loader"],
+        test: /\.s[ac]ss$/i,
+        use: [
+          // fallback to style-loader in development
+          process.env.NODE_ENV !== "production"
+            ? "style-loader"
+            : MiniCssExtractPlugin.loader,
+          "css-loader",
+          "sass-loader",
+        ],
       },
+      // {
+      //   test: /\.css$/i,
+      //   use: [MiniCssExtractPlugin.loader, "css-loader"],
+      // },
       //Templates:
       {
         test: /\.hbs$/,
@@ -63,6 +74,6 @@ module.exports = {
 
     static: "./dist",
     open: true,
-    port: 7777,
+    port: 7779,
   },
 };

@@ -10,7 +10,10 @@
       rel="stylesheet"
     />
   </head>
-  <body>
+  <body id="box">
+    <div class="mask">
+      <div class="loader"></div>
+    </div>
     <header>
       <div class="header__container">
         <div class="nav_container">
@@ -21,7 +24,7 @@
           <nav>
             <ul class="nav__list">
               <li class="nav__list_item">
-                <a class="nav__list_link" href="./index.html" id="home">Home</a>
+                <a class="nav__list_link current" href="./index.html" id="home">Home</a>
               </li>
               <li class="nav__list_item">
                 <a class="nav__list_link" href="#" id="library">my library</a>
@@ -54,185 +57,74 @@
       </div>
     </header>
     <main>
-     
-<!-- section class="home" -->
+      <!-- section class="home" -->
       <section class="home">
         <h2 class="visually-hidden">Hidden Title</h2>
-        <div id="box" class="visually-hidden">visually-hidden</div>
+        <!-- <div id="box" class="visually-hidden">visually-hidden</div> -->
         <ul class="cadr-list"></ul>
-        
       </section>
-<!-- section class="my-library" -->
+      <!-- section class="my-library" -->
       <section class="my-library">
         <h2 class="visually-hidden">Hidden Title</h2>
         <div class="library__watched" id="library__watched">
-          <h3>watched</h3>
-          <ul class="cadr-list watched-list ">
-            <li class="card__item">
-              <div class="card__img">
-                <img src="./src/img/Rectangle.png" alt="alt" />
-              </div>          
-              <div class="card__info">           
-          
-                <h3 class="card__info_name">Rectangle</h3>
-          
-                <p class="card__info_genre">интересне кино
-                <p>
-              </div>
-            </li>
-            <li class="card__item">
-              <div class="card__img">
-                <img src="./src/img/Rectangle.png" alt="alt" />
-              </div>
-          
-              <div class="card__info">   
-          
-          
-          
-                <h3 class="card__info_name">Rectangle</h3>
-          
-                <p class="card__info_genre">интересне кино
-                <p>
-              </div>
-            </li>
-            <li class="card__item">
-              <div class="card__img">
-                <img src="./src/img/Rectangle.png" alt="alt" />
-              </div>
-          
-              <div class="card__info">
-          
-          
-          
-          
-                <h3 class="card__info_name">Rectangle</h3>
-          
-                <p class="card__info_genre">интересне кино
-                <p>
-              </div>
-            </li>
-            <li class="card__item">
-              <div class="card__img">
-                <img src="./src/img/Rectangle.png" alt="alt" />
-              </div>
-          
-              <div class="card__info">
-          
-          
-          
-          
-                <h3 class="card__info_name">Rectangle</h3>
-          
-                <p class="card__info_genre">интересне кино
-                <p>
-              </div>
-            </li>
-          
-          
-          
-          </ul>
+          <ul class="cadr-list watched-list"></ul>
         </div>
         <div class="library__queue" id="library__queue">
-          <h3>library__queue</h3>
-          <ul class="cadr-list queue-list">
-            <li class="card__item">
-              <div class="card__img">
-                <img src="./src/img/Rectangle.png" alt="alt" />
-              </div>          
-              <div class="card__info">           
-          
-                <h3 class="card__info_name">Rectangle</h3>
-          
-                <p class="card__info_genre">интересне кино
-                <p>
-              </div>
-            </li>
-            <li class="card__item">
-              <div class="card__img">
-                <img src="./src/img/Rectangle.png" alt="alt" />
-              </div>
-          
-              <div class="card__info">   
-          
-          
-          
-                <h3 class="card__info_name">Rectangle</h3>
-          
-                <p class="card__info_genre">интересне кино
-                <p>
-              </div>
-            </li>
-            <li class="card__item">
-              <div class="card__img">
-                <img src="./src/img/Rectangle.png" alt="alt" />
-              </div>
-          
-              <div class="card__info">
-          
-          
-          
-          
-                <h3 class="card__info_name">Rectangle</h3>
-          
-                <p class="card__info_genre">интересне кино
-                <p>
-              </div>
-            </li>
-            <li class="card__item">
-              <div class="card__img">
-                <img src="./src/img/Rectangle.png" alt="alt" />
-              </div>
-          
-              <div class="card__info">
-          
-          
-          
-          
-                <h3 class="card__info_name">Rectangle</h3>
-          
-                <p class="card__info_genre">интересне кино
-                <p>
-              </div>
-            </li>
-          
-          
-          
-          </ul>
+          <ul class="cadr-list queue-list"></ul>
         </div>
-       
       </section>
-<!-- section class="pagination" -->
-      <section class="pagination">
-        
+      <!-- section class="pagination" -->
+      <section class="pagination__section">
         <div class="pagination__container">
-          
-          <ul class="pagination__list"></ul>
+          <ul class="pagination visual-hidden">
+            <li class="pagination__item pagination__item--arrow">
+              <button type="button" class="pagination__btn pagination__btn--left btn">
+                <img
+                  class="btn pagination__btn--left"
+                  inline
+                  src="./src/img/arrow-left.svg"
+                  alt="left"
+                />
+              </button>
+            </li>
+            <li>
+              <ul class="pagination__pages">
+                <!-- <li class="pagination__item pagination__item--current">1</li>
+                  <li class="pagination__item"><button type="button" class="pagination__btn pagination__btn--page">2</button></li>
+                  <li class="pagination__item"><button type="button" class="pagination__btn pagination__btn--page">3</button></li>
+                  <li class="pagination__item"><button type="button" class="pagination__btn pagination__btn--page">4</button></li>
+                  <li class="pagination__item"><button type="button" class="pagination__btn pagination__btn--page">5</button></li>
+                  <li class="pagination__item pagination__item--dots">...</li>
+                  <li class="pagination__item"><button type="button" class="pagination__btn pagination__btn--page">1000</button></li> -->
+              </ul>
+            </li>
+            <li class="pagination__item pagination__item--arrow">
+              <button type="button" class="pagination__btn pagination__btn--right btn">
+                <img
+                  class="btn pagination__btn--right"
+                  inline
+                  src="./src/img/arrow-right.svg"
+                  alt="right"
+                />
+              </button>
+            </li>
+          </ul>
         </div>
       </section>
     </main>
     <footer>
       <div class="footer__container">
-        <p class="footer__text">
-          &copy; 2020 | All Rights Reserved | Developed with
-        </p>
-        <span class="footer__svg"
-          ><img inline src="./src/img/GoIt.svg" alt="heart"
-        /></span>
-        <p class="footer__text">
-          by <a href="#" class="footer__link">GoIT Students</a>
-        </p>
+        <p class="footer__text">&copy; 2020 | All Rights Reserved | Developed with</p>
+        <span class="footer__svg"><img inline src="./src/img/GoIt.svg" alt="heart" /></span>
+        <p class="footer__text">by <a href="#" class="footer__link">GoIT Students</a></p>
       </div>
     </footer>
-    <div data-backdrob class="backdrob is-hidden ">
+    <div data-backdrob class="backdrob is-hidden">
       <div class="modal__card">
         <div data-close-modal class="modal__btn_close">
-          <img inline src="/src/img/close.svg" alt="close"> 
-          
-        </div> 
+          <img inline src="/src/img/close.svg" alt="close" />
+        </div>
         <div class="modal"></div>
-
-       
-
       </div>
     </div>
   </body>

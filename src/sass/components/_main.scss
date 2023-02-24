@@ -1,0 +1,43 @@
+
+/* main */
+
+ .home {
+  max-width: 882px;
+
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 50px;
+}
+
+.my-library {
+  display: none;
+  max-width: 882px;
+
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 50px;
+}
+.library__queue {
+  display: none;
+}
+.library__library {
+  display: block;
+}
+.visually-hidden {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  border: 0;
+  padding: 0;
+  clip: rect(0 0 0 0);
+  border: none;
+  overflow: hidden;
+}
+.cadr-list {
+  display: flex;
+  flex-wrap: wrap;
+  margin: -15px -15px 0 -15px;
+} 
