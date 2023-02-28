@@ -1,27 +1,50 @@
-let idsMovies = {
-  watched: [],
-  queue: [],
-};
-const save = (key, value) => {
-  try {
-    const serializedState = JSON.stringify(value);
-    localStorage.setItem(key, serializedState);
-  } catch (error) {
-    console.error('Set state error: ', error.message);
+export default class LocalStorageId {
+  constructor() {
+    this.keyWatch = 'watch';
+    this.keyQueue = 'queue';
   }
-};
-
-const load = key => {
-  try {
-    const serializedState = localStorage.getItem(key);
-    return serializedState === null ? undefined : JSON.parse(serializedState);
-  } catch (error) {
-    console.error('Get state error: ', error.message);
+  getIdWatch() {
+    const serializedState = localStorage.getItem(this.keyWatch);
+    if (serializedState !== null) {
+      return JSON.parse(serializedState);
+    }
+    return [];
   }
-};
+  getIdQueue() {
+    const serializedState = localStorage.getItem(this.keyQueue);
+    if (serializedState !== null) {
+      return JSON.parse(serializedState);
+    }
+    return [];
+  }
+  putIdWatch(id) {
+    let idsWatch = this.getIdWatch();
+    let pushId = false;
+    const index = idsWatch.indexOf(id);
 
-export const storage = {
-  save,
-  load,
-  idsMovies,
-};
+    if (index === -1) {
+      idsWatch.unshift(id);
+      pushId = true;
+    } else {
+      idsWatch.splice(index, 1);
+    }
+
+    localStorage.setItem(this.keyWatch, JSON.stringify(idsWatch));
+    return { pushId, idsWatch };
+  }
+  putIdQueue(id) {
+    let idsQueue = this.getIdQueue();
+    let pushIdQueue = false;
+    const index = idsQueue.indexOf(id);
+
+    if (index === -1) {
+      idsQueue.unshift(id);
+      pushIdQueue = true;
+    } else {
+      idsQueue.splice(index, 1);
+    }
+
+    localStorage.setItem(this.keyQueue, JSON.stringify(idsQueue));
+    return { pushIdQueue, idsQueue };
+  }
+}

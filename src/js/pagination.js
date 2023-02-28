@@ -1,9 +1,5 @@
 import createPagination from '../templates/pagination.hbs';
-
-const refs = {
-  pagination: document.querySelector('.pagination'),
-  pagesContainer: document.querySelector('.pagination__pages'),
-};
+import scrollUp from './scroll';
 
 const paginationGenerator = (current, last, delta = 2) => {
   const left = current - delta;
@@ -22,57 +18,66 @@ const paginationGenerator = (current, last, delta = 2) => {
     }
   }
 
-  range.forEach(page => {
+  range.forEach((page, index) => {
     if (previous && page - previous !== 1) {
       rangeWithDots.push({ page: dots, current: false, dots: true });
     }
     page === current
-      ? rangeWithDots.push({ page: page, current: true, dots: false })
-      : rangeWithDots.push({ page: page, current: false, dots: false });
+      ? rangeWithDots.push({ page: page, data: index, current: true, dots: false })
+      : rangeWithDots.push({ page: page, data: index, current: false, dots: false });
     previous = page;
   });
 
   return rangeWithDots;
 };
 
-function renderPagination(current, pages) {
-  if (pages === 1) {
-    refs.pagination.classList.add('visual-hidden');
+function renderPagination(current, pages, list, paginationList) {
+  if (pages <= 1) {
+    paginationList.classList.add('visual-hidden');
     return;
   }
-  refs.pagination.classList.remove('visual-hidden');
-  refs.pagesContainer.innerHTML = createPagination(paginationGenerator(current, pages));
+
+  paginationList.classList.remove('visual-hidden');
+  list.innerHTML = createPagination(paginationGenerator(current, pages));
+
   disableUnnecessaryArrows(current, pages);
 }
 
-export function activatePagination({ current, pages }) {
-  renderPagination(current, pages);
+export function activatePagination({ current, pages, list, paginationList }) {
+  renderPagination(current, pages, list, paginationList);
 
-  refs.pagination.addEventListener('click', e => {
-    if (!e.target.classList.contains('btn')) {
+  paginationList.addEventListener('click', (e) => {
+    if (!e.target.dataset.pg) {
       return;
     }
-    if (e.target.classList.contains('pagination__btn--page')) {
-      current = +e.target.textContent;
-      renderPagination(current, pages);
 
-      return;
-    }
-    if (e.target.classList.contains('pagination__btn--left')) {
-      if (current !== 1) {
-        current -= 1;
-        renderPagination(current, pages);
-
-        return;
-      }
-    }
-    if (e.target.classList.contains('pagination__btn--right')) {
+    if (e.target.dataset.pg === 'right') {
       if (current !== pages) {
         current += 1;
-        renderPagination(current, pages);
 
-        return;
+        renderPagination(current, pages, list, paginationList);
+        scrollUp();
       }
+      return;
+    }
+
+    if (e.target.dataset.pg === 'left') {
+      if (current !== 1) {
+        current -= 1;
+
+        renderPagination(current, pages, list, paginationList);
+        scrollUp();
+      }
+      return;
+    }
+
+    if (e.target.dataset.pg) {
+      current = +e.target.dataset.pg;
+
+      renderPagination(current, pages, list, paginationList);
+      scrollUp();
+
+      return;
     }
   });
 }

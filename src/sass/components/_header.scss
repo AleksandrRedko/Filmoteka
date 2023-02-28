@@ -38,11 +38,17 @@ header {
   .logo {
     font-size: 30px;
     line-height: 1.16;
-  
+
+  @extend %transition;
     color: $white-text-color;
     &__svg {
       display: inline-block;
     } 
+    &:hover{
+      @extend %transition;
+    
+      color: $accent-color;
+    }
   }
   
   
@@ -62,13 +68,20 @@ header {
     &_link {
       line-height: 1.16;
       text-transform: uppercase;
+      @extend %transition;
       color: $white-text-color;
+      &:hover{
+        @extend %transition;
+        
+          color: $accent-color;
+      }
     } 
   }
  
   /* подчеркивание текущей страници  */
   .current {
     position: relative;
+   
     &::after {
       content: " ";
       position: absolute;
@@ -90,8 +103,7 @@ header {
   
   .search__form {
     position: relative;
-    &_input,
-    &_input:focus {
+    &_input{
       width: 336px;
       outline: none;
       border: none;
@@ -102,13 +114,21 @@ header {
       font-size: 14px;
       line-height: 1.14;
       color: $white-text-color;
+      @extend %transition;
+          &:hover {
+              @extend %transition;
+          border-bottom: 0.5px solid $accent-color;
+              
+            }
     }
     &_input::placeholder {
       font-weight: 400;
       font-size: 14px;
       line-height: 1.14;
       color: $white-text-color;
+   
     } 
+     
   }
  
   
@@ -153,6 +173,7 @@ header {
     line-height: 1.33;
     text-transform: uppercase;
     color: $white-text-color;
+    @extend %transition;
   }
   .active__btn {
     border: 1px solid transparent;
@@ -160,8 +181,8 @@ header {
     background: $accent-color;
   }
   .button_list-item:hover .not-active {
-    border: 1px solid transparent;
-  
+    border: 1px solid transparent;  
     background: $accent-color;
+    @extend %transition;
   } 
   

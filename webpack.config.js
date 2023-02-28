@@ -1,25 +1,25 @@
-const path = require("path");
-const HtmlWebpackPlugin = require("html-webpack-plugin");
-const HtmlWebpackInlineSVGPlugin = require("html-webpack-inline-svg-plugin");
-const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const path = require('path');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const HtmlWebpackInlineSVGPlugin = require('html-webpack-inline-svg-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 // console.log("🚀 ~ file: webpack.config.js:8 ~ __dirname", __dirname); //!
 
 module.exports = {
-  entry: "./src/index.js",
+  entry: './src/index.js',
 
   output: {
-    filename: "bundle.js",
-    path: path.resolve(__dirname, "dist"),
+    filename: 'bundle.js',
+    path: path.resolve(__dirname, 'dist'),
     clean: true,
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: "./index.html",
+      template: './index.html',
     }),
-    new HtmlWebpackInlineSVGPlugin({runPreEmit: true}),
+    new HtmlWebpackInlineSVGPlugin({ runPreEmit: true }),
     new MiniCssExtractPlugin({
-      filename: "[name].[contenthash].css",
+      filename: '[name].[contenthash].css',
     }),
   ],
 
@@ -27,21 +27,19 @@ module.exports = {
     rules: [
       {
         test: /\.html$/i,
-        loader: "html-loader",
+        loader: 'html-loader',
       },
       {
         test: /\.(png|svg|jpg|jpeg|gif)$/i,
-        type: "asset/resource",
+        type: 'asset/resource',
       },
       {
         test: /\.s[ac]ss$/i,
         use: [
           // fallback to style-loader in development
-          process.env.NODE_ENV !== "production"
-            ? "style-loader"
-            : MiniCssExtractPlugin.loader,
-          "css-loader",
-          "sass-loader",
+          process.env.NODE_ENV !== 'production' ? 'style-loader' : MiniCssExtractPlugin.loader,
+          'css-loader',
+          'sass-loader',
         ],
       },
       // {
@@ -51,28 +49,29 @@ module.exports = {
       //Templates:
       {
         test: /\.hbs$/,
-        loader: "handlebars-loader",
+        loader: 'handlebars-loader',
       },
     ],
   },
   //   optimization: {
   //     runtimeChunk: "single",
   //   },
+
   devServer: {
     devMiddleware: {
       writeToDisk: true,
     }, //!!
     client: {
-      logging: "error",
+      logging: 'error',
     },
     static: {
-      directory: path.join(__dirname, "dist"),
+      directory: path.join(__dirname, 'dist'),
       //   directory: path.join(__dirname, "./"),
     },
 
     liveReload: true,
 
-    static: "./dist",
+    static: './dist',
     open: true,
     port: 7779,
   },

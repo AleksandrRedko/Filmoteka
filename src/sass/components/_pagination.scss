@@ -4,6 +4,12 @@
   opacity: 0;
   pointer-events: none;
 }
+.pagination__pages-queue,
+.pagination__pages-watch{
+  display: flex;
+}
+.pagination-queue,
+.pagination-watch,
 .pagination {
   display: flex;
   justify-content: space-between;

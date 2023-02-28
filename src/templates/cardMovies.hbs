@@ -1,21 +1,27 @@
 {{#each this}}
-<li class="card__item" >
-    <div class="card__img"> 
-         {{#if poster_path}}      
-        <img  src="https://image.tmdb.org/t/p/w600_and_h900_bestv2/{{poster_path}}" id="{{id}}" alt="{{title}}"/> 
+<a href="#"><li class="card__item">
+    <div class="card__img">
+        {{#if poster_path}}
+        <img src="https://image.tmdb.org/t/p/w600_and_h900_bestv2/{{poster_path}}" id="{{id}}" alt="{{title}}" />
         {{else}}
-        <img  src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR9kYvneZq22IX1CbTcbFSiK0IaWsd_kGhiZw&usqp=CAU" id="{{id}}" alt="image not found"/> 
-        {{/if}}         
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR9kYvneZq22IX1CbTcbFSiK0IaWsd_kGhiZw&usqp=CAU"
+            id="{{id}}" alt="image not found" />
+        {{/if}}
     </div>
 
     <div class="card__info">
         {{#if title}}
         <h3 class="card__info_name">{{title}}</h3>
-       
+
         {{else if name}}
         <h3 class="card__info_name">{{name}}</h3>
-         {{/if}}
-        <p class="card__info_genre">{{genre_ids}}<p>
+        {{/if}}
+    
+        <p class="card__info_genre">{{#each genre_ids}}
+        {{name}}{{/each}}{{#each genres}}
+        {{name}}{{/each}}
+        &nbsp;|&nbsp;
+        {{release_date}}<p>
     </div>
-</li>
+</li></a>
 {{/each}}

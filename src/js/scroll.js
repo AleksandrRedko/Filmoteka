@@ -1,5 +1,6 @@
-import { refs } from '../js/refs';
-const handleButtonClick = function () {
+import { refs } from './refs';
+const scrollUp = function () {
   refs.hiddenElement.scrollIntoView({ block: 'start', behavior: 'smooth' });
 };
-export default handleButtonClick;
+
+export default scrollUp;

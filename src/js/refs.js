@@ -1,5 +1,4 @@
 export const refs = {
-  // logoRefs: document.querySelector("#logo"),
   homeRefs: document.querySelector('#home'),
   libraryRefs: document.querySelector('#library'),
   searchForm: document.querySelector('#search-form'),
@@ -8,7 +7,7 @@ export const refs = {
   queueContainer: document.querySelector('#library__queue'),
   watcheBtn: document.querySelector('#btnWatched'),
   queueBtn: document.querySelector('#btnQueue'),
-  paginationList: document.querySelector('.pagination'),
+  pagination: document.querySelector('.pagination'),
 
   hiddenElement: document.getElementById('box'),
   form: document.querySelector('.header__form'),

@@ -3,6 +3,16 @@
   width: 274px;
   min-height: 439px;
   margin: 15px;
+    transform: translate(0%, 0%) scale(1);
+    @extend %transition;
+        box-shadow:0.25s ease;
+      
+      &:hover {
+        transform: translate(0%, 0%) scale(1.07);
+        @extend %transition;
+        box-shadow: 0px 5px 10px 5px rgba(34, 60, 80, 0.2),
+          0px -5px 10px -5px rgba(34, 60, 80, 0.2);
+      }
 }
 .card__img {
   width: 274px;

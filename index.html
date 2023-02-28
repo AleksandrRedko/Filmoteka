@@ -57,29 +57,21 @@
       </div>
     </header>
     <main>
-      <!-- section class="home" -->
+      <!-- главная страница -->
       <section class="home">
-        <h2 class="visually-hidden">Hidden Title</h2>
-        <!-- <div id="box" class="visually-hidden">visually-hidden</div> -->
+        <h2 class="visually-hidden">Hidden Title</h2>        
         <ul class="cadr-list"></ul>
-      </section>
-      <!-- section class="my-library" -->
-      <section class="my-library">
-        <h2 class="visually-hidden">Hidden Title</h2>
-        <div class="library__watched" id="library__watched">
-          <ul class="cadr-list watched-list"></ul>
-        </div>
-        <div class="library__queue" id="library__queue">
-          <ul class="cadr-list queue-list"></ul>
-        </div>
-      </section>
-      <!-- section class="pagination" -->
-      <section class="pagination__section">
+
         <div class="pagination__container">
           <ul class="pagination visual-hidden">
             <li class="pagination__item pagination__item--arrow">
-              <button type="button" class="pagination__btn pagination__btn--left btn">
+              <button
+                type="button"
+                class="pagination__btn pagination__btn--left btn"
+                data-pg="left"
+              >
                 <img
+                  data-pg="left"
                   class="btn pagination__btn--left"
                   inline
                   src="./src/img/arrow-left.svg"
@@ -88,19 +80,16 @@
               </button>
             </li>
             <li>
-              <ul class="pagination__pages">
-                <!-- <li class="pagination__item pagination__item--current">1</li>
-                  <li class="pagination__item"><button type="button" class="pagination__btn pagination__btn--page">2</button></li>
-                  <li class="pagination__item"><button type="button" class="pagination__btn pagination__btn--page">3</button></li>
-                  <li class="pagination__item"><button type="button" class="pagination__btn pagination__btn--page">4</button></li>
-                  <li class="pagination__item"><button type="button" class="pagination__btn pagination__btn--page">5</button></li>
-                  <li class="pagination__item pagination__item--dots">...</li>
-                  <li class="pagination__item"><button type="button" class="pagination__btn pagination__btn--page">1000</button></li> -->
-              </ul>
+              <ul class="pagination__pages"></ul>
             </li>
             <li class="pagination__item pagination__item--arrow">
-              <button type="button" class="pagination__btn pagination__btn--right btn">
+              <button
+                type="button"
+                class="pagination__btn pagination__btn--right btn"
+                data-pg="right"
+              >
                 <img
+                  data-pg="right"
                   class="btn pagination__btn--right"
                   inline
                   src="./src/img/arrow-right.svg"
@@ -111,12 +100,58 @@
           </ul>
         </div>
       </section>
+      <!-- страница библиотеки -->
+       <section class="my-library">
+        <h2 class="visually-hidden">Hidden Title</h2>
+         <div class="library__watched" id="library__watched">
+          <ul class="cadr-list watched-list"></ul>
+          <div class="pagination__container">
+            <ul class="pagination-watch visual-hidden">
+              <li class="pagination__item pagination__item--arrow">
+                <button type="button" class="pagination__btn pagination__btn--left--watch btn" data-pg="left">
+                  <img data-pg="left" class="btn pagination__btn--left" inline src="./src/img/arrow-left.svg" alt="left" />
+                </button>
+              </li>
+              <li>
+                <ul class="pagination__pages-watch"></ul>
+              </li>
+              <li class="pagination__item pagination__item--arrow">
+                <button type="button" class="pagination__btn pagination__btn--right--watch btn" data-pg="right">
+                  <img data-pg="right" class="btn pagination__btn--right" inline src="./src/img/arrow-right.svg" alt="right" />
+                </button>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="library__queue" id="library__queue">
+          <ul class="cadr-list queue-list"></ul>
+        <div class="pagination__container">
+            <ul class="pagination-queue visual-hidden">
+              <li class="pagination__item pagination__item--arrow">
+                <button type="button" class="pagination__btn pagination__btn--left--queue btn" data-pg="left">
+                  <img data-pg="left" class="btn pagination__btn--left" inline src="./src/img/arrow-left.svg" alt="left" />
+                </button>
+              </li>
+              <li>
+                <ul class="pagination__pages-queue"></ul>
+              </li>
+              <li class="pagination__item pagination__item--arrow">
+                <button type="button" class="pagination__btn pagination__btn--right--queue btn" data-pg="right">
+                  <img data-pg="right" class="btn pagination__btn--right" inline src="./src/img/arrow-right.svg" alt="right" />
+                </button>
+              </li>
+            </ul>
+          </div>
+          
+        </div>
+      </section>
+    
     </main>
     <footer>
       <div class="footer__container">
-        <p class="footer__text">&copy; 2020 | All Rights Reserved | Developed with</p>
+        <p class="footer__text">&copy; 2020 | All Rights Reserved | Designed with</p>
         <span class="footer__svg"><img inline src="./src/img/GoIt.svg" alt="heart" /></span>
-        <p class="footer__text">by <a href="#" class="footer__link">GoIT Students</a></p>
+        <p class="footer__text">by <a href="#" class="footer__link">Alexander Redko</a></p>
       </div>
     </footer>
     <div data-backdrob class="backdrob is-hidden">
