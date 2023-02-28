@@ -1,1 +1,166 @@
-<!doctype html><html lang="en"><head><meta charset="UTF-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><meta name="viewport" content="width=device-width,initial-scale=1"/><title>Document</title><link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet"/><script defer="defer" src="bundle.js"></script></head><body id="box"><div class="mask"><div class="loader"></div></div><header><div class="header__container"><div class="nav_container"><a href="./index.html" id="logo"><img inline src="a3973b49ebb2cb2ded61.svg" alt="logo" class="logo__svg"/> <span class="logo">Filmoteka</span></a><nav><ul class="nav__list"><li class="nav__list_item"><a class="nav__list_link current" href="./index.html" id="home">Home</a></li><li class="nav__list_item"><a class="nav__list_link" href="#" id="library">my library</a></li></ul></nav></div><div class="header__form"><form class="search__form" id="search-form"><input class="search__form_input" name="searchQuery" autocomplete="off" placeholder="Поиск фильмов"/> <button class="btn__search" type="submit"></button></form></div><div class="is-active"><ul class="button_list"><li class="button_list-item"><button type="button" class="not-active active__btn" id="btnWatched">Watched</button></li><li class="button_list-item"><button type="button" class="not-active" id="btnQueue">queue</button></li></ul></div></div></header><main><section class="home"><h2 class="visually-hidden">Hidden Title</h2><ul class="cadr-list"></ul><div class="pagination__container"><ul class="pagination visual-hidden"><li class="pagination__item pagination__item--arrow"><button type="button" class="pagination__btn pagination__btn--left btn" data-pg="left"><img data-pg="left" class="btn pagination__btn--left" inline src="08ff6da45029b0398fcf.svg" alt="left"/></button></li><li><ul class="pagination__pages"></ul></li><li class="pagination__item pagination__item--arrow"><button type="button" class="pagination__btn pagination__btn--right btn" data-pg="right"><img data-pg="right" class="btn pagination__btn--right" inline src="91a06a416c8485938a58.svg" alt="right"/></button></li></ul></div></section><section class="my-library"><h2 class="visually-hidden">Hidden Title</h2><div class="library__watched" id="library__watched"><ul class="cadr-list watched-list"></ul><div class="pagination__container"><ul class="pagination-watch visual-hidden"><li class="pagination__item pagination__item--arrow"><button type="button" class="pagination__btn pagination__btn--left--watch btn" data-pg="left"><img data-pg="left" class="btn pagination__btn--left" inline src="08ff6da45029b0398fcf.svg" alt="left"/></button></li><li><ul class="pagination__pages-watch"></ul></li><li class="pagination__item pagination__item--arrow"><button type="button" class="pagination__btn pagination__btn--right--watch btn" data-pg="right"><img data-pg="right" class="btn pagination__btn--right" inline src="91a06a416c8485938a58.svg" alt="right"/></button></li></ul></div></div><div class="library__queue" id="library__queue"><ul class="cadr-list queue-list"></ul><div class="pagination__container"><ul class="pagination-queue visual-hidden"><li class="pagination__item pagination__item--arrow"><button type="button" class="pagination__btn pagination__btn--left--queue btn" data-pg="left"><img data-pg="left" class="btn pagination__btn--left" inline src="08ff6da45029b0398fcf.svg" alt="left"/></button></li><li><ul class="pagination__pages-queue"></ul></li><li class="pagination__item pagination__item--arrow"><button type="button" class="pagination__btn pagination__btn--right--queue btn" data-pg="right"><img data-pg="right" class="btn pagination__btn--right" inline src="91a06a416c8485938a58.svg" alt="right"/></button></li></ul></div></div></section></main><footer><div class="footer__container"><p class="footer__text">&copy; 2020 | All Rights Reserved | Designed with</p><span class="footer__svg"><img inline src="449ef2325a7636ebcbbe.svg" alt="heart"/></span><p class="footer__text">by <a href="#" class="footer__link">Alexander Redko</a></p></div></footer><div data-backdrob class="backdrob is-hidden"><div class="modal__card"><div data-close-modal class="modal__btn_close"><img inline src="283b75c931295ed098c9.svg" alt="close"/></div><div class="modal"></div></div></div></body></html>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+  <script defer src="bundle.js"></script></head>
+  <body id="box">
+    <div class="mask">
+      <div class="loader"></div>
+    </div>
+    <header>
+      <div class="header__container">
+        <div class="nav_container">
+          <a href="./index.html" id="logo">
+            <img inline src="a3973b49ebb2cb2ded61.svg" alt="logo" class="logo__svg" />
+            <span class="logo">Filmoteka</span>
+          </a>
+          <nav>
+            <ul class="nav__list">
+              <li class="nav__list_item">
+                <a class="nav__list_link current" href="./index.html" id="home">Home</a>
+              </li>
+              <li class="nav__list_item">
+                <a class="nav__list_link" href="#" id="library">my library</a>
+              </li>
+            </ul>
+          </nav>
+        </div>
+        <div class="header__form">
+          <form class="search__form" id="search-form">
+            <input
+              class="search__form_input"
+              type="text"
+              name="searchQuery"
+              autocomplete="off"
+              placeholder="Поиск фильмов"
+            />
+            <button class="btn__search" type="submit"></button>
+          </form>
+        </div>
+        <div class="is-active">
+          <ul class="button_list">
+            <li class="button_list-item">
+              <button type="button" class="not-active active__btn" id="btnWatched">Watched</button>
+            </li>
+            <li class="button_list-item">
+              <button type="button" class="not-active" id="btnQueue">queue</button>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </header>
+    <main>
+      <!-- главная страница -->
+      <section class="home">
+        <h2 class="visually-hidden">Hidden Title</h2>        
+        <ul class="cadr-list"></ul>
+
+        <div class="pagination__container">
+          <ul class="pagination visual-hidden">
+            <li class="pagination__item pagination__item--arrow">
+              <button
+                type="button"
+                class="pagination__btn pagination__btn--left btn"
+                data-pg="left"
+              >
+                <img
+                  data-pg="left"
+                  class="btn pagination__btn--left"
+                  inline
+                  src="08ff6da45029b0398fcf.svg"
+                  alt="left"
+                />
+              </button>
+            </li>
+            <li>
+              <ul class="pagination__pages"></ul>
+            </li>
+            <li class="pagination__item pagination__item--arrow">
+              <button
+                type="button"
+                class="pagination__btn pagination__btn--right btn"
+                data-pg="right"
+              >
+                <img
+                  data-pg="right"
+                  class="btn pagination__btn--right"
+                  inline
+                  src="91a06a416c8485938a58.svg"
+                  alt="right"
+                />
+              </button>
+            </li>
+          </ul>
+        </div>
+      </section>
+      <!-- страница библиотеки -->
+       <section class="my-library">
+        <h2 class="visually-hidden">Hidden Title</h2>
+         <div class="library__watched" id="library__watched">
+          <ul class="cadr-list watched-list"></ul>
+          <div class="pagination__container">
+            <ul class="pagination-watch visual-hidden">
+              <li class="pagination__item pagination__item--arrow">
+                <button type="button" class="pagination__btn pagination__btn--left--watch btn" data-pg="left">
+                  <img data-pg="left" class="btn pagination__btn--left" inline src="08ff6da45029b0398fcf.svg" alt="left" />
+                </button>
+              </li>
+              <li>
+                <ul class="pagination__pages-watch"></ul>
+              </li>
+              <li class="pagination__item pagination__item--arrow">
+                <button type="button" class="pagination__btn pagination__btn--right--watch btn" data-pg="right">
+                  <img data-pg="right" class="btn pagination__btn--right" inline src="91a06a416c8485938a58.svg" alt="right" />
+                </button>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="library__queue" id="library__queue">
+          <ul class="cadr-list queue-list"></ul>
+        <div class="pagination__container">
+            <ul class="pagination-queue visual-hidden">
+              <li class="pagination__item pagination__item--arrow">
+                <button type="button" class="pagination__btn pagination__btn--left--queue btn" data-pg="left">
+                  <img data-pg="left" class="btn pagination__btn--left" inline src="08ff6da45029b0398fcf.svg" alt="left" />
+                </button>
+              </li>
+              <li>
+                <ul class="pagination__pages-queue"></ul>
+              </li>
+              <li class="pagination__item pagination__item--arrow">
+                <button type="button" class="pagination__btn pagination__btn--right--queue btn" data-pg="right">
+                  <img data-pg="right" class="btn pagination__btn--right" inline src="91a06a416c8485938a58.svg" alt="right" />
+                </button>
+              </li>
+            </ul>
+          </div>
+          
+        </div>
+      </section>
+    
+    </main>
+    <footer>
+      <div class="footer__container">
+        <p class="footer__text">&copy; 2020 | All Rights Reserved | Designed with</p>
+        <span class="footer__svg"><img inline src="449ef2325a7636ebcbbe.svg" alt="heart" /></span>
+        <p class="footer__text">by <a href="#" class="footer__link">Alexander Redko</a></p>
+      </div>
+    </footer>
+    <div data-backdrob class="backdrob is-hidden">
+      <div class="modal__card">
+        <div data-close-modal class="modal__btn_close">
+          <img inline src="283b75c931295ed098c9.svg" alt="close" />
+        </div>
+        <div class="modal"></div>
+      </div>
+    </div>
+  </body>
+</html>
