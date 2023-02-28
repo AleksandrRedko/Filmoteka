@@ -8,7 +8,7 @@ import { Notify } from 'notiflix/build/notiflix-notify-aio';
 
 const moviesApiServise = new MoviesApiServise();
 
-spinerOn();
+// spinerOn();
 // функция вывода сообщения
 const showMessage = function (data) {
   data.total_results === 0
@@ -19,10 +19,11 @@ const showMessage = function (data) {
 
 // функция рендера карточек фильма на главную страницу
 const renderPage = async function ({ dataNew, data }) {
+  spinerOn();
+
   const markup = cardMovies(dataNew);
   refs.cardList.innerHTML = markup;
 
-  spinerOn();
   return data;
 };
 // функция рендера пагинации  на  страницу
@@ -32,7 +33,9 @@ const pagination = async function (data) {
   const list = document.querySelector('.pagination__pages');
   const current = data.page;
   const pages = data.total_pages;
-  spinerOf();
+  setTimeout(() => {
+    spinerOf();
+  }, 700);
   return { current, pages, list, paginationList };
 };
 

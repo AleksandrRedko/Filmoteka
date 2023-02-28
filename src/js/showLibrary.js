@@ -36,7 +36,7 @@ const getIdFromLocalStorage = async function (arry, element, currentPage) {
     const markup = cardMovies(list);
     element.innerHTML = markup;
 
-    spinerOf();
+    
   }
 };
 // функция запроса по клику на пагинацию
@@ -72,7 +72,7 @@ const clickToMakeaRequest = (arryId, renderList, page, totalPages) => (e) => {
 const showHomePage = function () {
   refs.cardList.innerHTML = '';
   refs.pagination.innerHTML = '';
-  spinerOn();
+ 
   refs.homeRefs.classList.add('current');
   refs.libraryRefs.classList.remove('current');
 
@@ -86,7 +86,7 @@ const showHomePage = function () {
 
 const goLibrary = function (e) {
   e.preventDefault();
-  spinerOn();
+  
   const containerName = 'Watched';
   let page = 1;
   const arryIdWatch = localStorageId.getIdWatch();
@@ -117,7 +117,7 @@ const goLibrary = function (e) {
   refs.sectionLibrary.style.display = 'block';
 };
 export const showQueueu = function () {
-  spinerOn();
+ 
   refs.queueContainer.style.display = 'block';
   refs.watcheContainer.style.display = 'none';
 
@@ -144,7 +144,7 @@ export const showQueueu = function () {
 };
 
 export const showWatched = function () {
-  spinerOn();
+ 
   const arryIdWatch = localStorageId.getIdWatch();
   const containerName = 'Watched';
   showMessageIfNoMoviesSaved(arryIdWatch, containerName);
